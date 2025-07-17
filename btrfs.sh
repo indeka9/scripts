@@ -1,8 +1,8 @@
 # === CONFIGURATION ===
 DISK="sdb"
-DISKEFI=2
+DISKEFI=1
 DISKBOOT=2
-DISKROOT=4
+DISKROOT=3
 ROOTNAME=root
 
 echo "mkdir /mnt/copyfrom"
