@@ -5,9 +5,6 @@ DISKBOOT=2
 DISKROOT=3
 ROOTNAME=root
 
-echo "mkdir /mnt/copyfrom"
-echo "mkdir /mnt/copyto"
-
 RSYNC_FROM_DIR="/mnt/copyfrom" 
 RSYNC_TO_DIR="/mnt/copyto"
 
@@ -20,6 +17,9 @@ mount_options="defaults"
 echo "cryptsetup luksFormat /dev/$DISK$DISKROOT"
 
 echo "cryptsetup luksOpen /dev/$DISK$DISKROOT $ROOTNAME"
+
+echo "mkdir /mnt/copyfrom"
+echo "mkdir /mnt/copyto"
 
 echo "mount /dev/mapper/$ROOTNAME $RSYNC_TO_DIR"
 
