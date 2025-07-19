@@ -12,7 +12,7 @@ DISKMOUNT="$ROOTNAME"
 
 btrfs_list="@:tmp @opt:opt @tmp:tmp @var_cache:var/cache @var_tmp:var/tmp @var_log:var/log @home:home @.mozilla:home/$USER/.mozilla @.thunderbird:home/$USER/.thunderbird @.wine:home/$USER/.wine"
 
-mount_options="defaults"
+mount_options="noatime,ssd,space_cache=v2,discard=async,compress=zstd:3"
 
 echo "cryptsetup luksFormat /dev/$DISK$DISKROOT"
 
