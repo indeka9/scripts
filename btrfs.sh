@@ -21,9 +21,13 @@ echo "cryptsetup luksOpen /dev/$DISK$DISKROOT $ROOTNAME"
 echo "mkdir /mnt/copyfrom"
 echo "mkdir /mnt/copyto"
 
+
+echo "mkfs.fat -F 32 /dev/${DISK}${DISKEFI}"
+echo "mkfs.btrfs  /dev/${DISK}${DISKBOOT}"
+
 echo "mount /dev/mapper/$ROOTNAME $RSYNC_TO_DIR"
- 
 echo "mkfs.btrfs  /dev/mapper/$ROOTNAME $RSYNC_TO_DIR"
+
 
 echo cd "$RSYNC_TO_DIR"
 
