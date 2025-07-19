@@ -84,7 +84,7 @@ modules='all_video boot btrfs cat chain configfile echo efifwsetup efinet ext2 f
 
 echo "grub-install  --bootloader-id Linux --efi-directory /boot  --modules=\"${modules}\" --sbat /usr/share/grub/sbat.csv"
 
-echo "efibootmgr --create --disk /dev/${DISK} --part ${DISK}${DISKEFI} --label "Linux shim" --loader 'EFI\BOOT\shimx64.efi' --unicode"
+echo "efibootmgr --create --disk /dev/${DISK} --part ${DISK}${DISKEFI} --label "Linux shim" --loader 'EFI\Linux\shimx64.efi' --unicode"
 
 
 
