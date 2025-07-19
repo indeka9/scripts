@@ -26,7 +26,7 @@ echo "mkfs.fat -F 32 /dev/${DISK}${DISKEFI}"
 echo "mkfs.btrfs  /dev/${DISK}${DISKBOOT}"
 
 echo "mount /dev/mapper/$ROOTNAME $RSYNC_TO_DIR"
-echo "mkfs.btrfs  /dev/mapper/$ROOTNAME $RSYNC_TO_DIR"
+echo "mkfs.btrfs  /dev/mapper/$ROOTNAME"
 
 
 echo cd "$RSYNC_TO_DIR"
@@ -62,8 +62,8 @@ for element in "${array[@]}"; do
 done
 
 
-echo "rsync -aAXv --numeric-ids --delete ${RSYNC_FROM_DIR}/ ${RSYNC_TO_DIR}/"
-echo "pacstrap ${RSYNC_TO_DIR} base, linux, linux-headers linux-firmware"
+echo "rsync -aAXv --numeric-ids --delete ${RSYNC_FROM_DIR}/ ${RSYNC_TO_DIR}/${part2}"
+echo "pacstrap ${RSYNC_TO_DIR} base linux linux-headers linux-firmware"
 
 echo "genfstab -U -P ${RSYNC_TO_DIR} >> ${RSYNC_TO_DIR}/etc/fstab" 
 
