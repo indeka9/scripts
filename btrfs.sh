@@ -58,11 +58,11 @@ echo "mount -o $mount_options /dev/${DISK}${DISKEFI} $RSYNC_TO_DIR/boot/efi"
 
 for element in "${array[@]}"; do
     IFS=':' read -r part1 part2 <<< "$element"
-    echo "mount -o $mount_options,subvol=$part1 /dev/mapper/$DISKMOUNT $RSYNC_TO_DIR"
+    echo "mount -o $mount_options,subvol=$part1 /dev/mapper/$DISKMOUNT $RSYNC_TO_DIR/${part2}"
 done
 
 
-echo "rsync -aAXv --numeric-ids --delete ${RSYNC_FROM_DIR}/ ${RSYNC_TO_DIR}/${part2}"
+echo "rsync -aAXv --numeric-ids --delete ${RSYNC_FROM_DIR}/ ${RSYNC_TO_DIR}"
 echo "pacstrap ${RSYNC_TO_DIR} base linux linux-headers linux-firmware"
 
 echo "genfstab -U -P ${RSYNC_TO_DIR} >> ${RSYNC_TO_DIR}/etc/fstab" 
