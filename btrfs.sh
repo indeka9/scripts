@@ -29,16 +29,13 @@ echo "mount /dev/mapper/$ROOTNAME $RSYNC_TO_DIR"
 echo "mkfs.btrfs  /dev/mapper/$ROOTNAME"
 
 
-echo cd "$RSYNC_TO_DIR"
-
-
 # Set IFS to space to split the string into an array 
 IFS=' ' read -r -a array <<< "$btrfs_list"
 
 # Loop through the array and print elements
 for element in "${array[@]}"; do
     IFS=':' read -r part1 part2 <<< "$element"
-    echo "btrfs subvolume create ${part1}"
+    echo "btrfs subvolume create ${RSYNC_TO_DIR}/${part1}"
 done
 
 cd ..
