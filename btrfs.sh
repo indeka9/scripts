@@ -38,7 +38,7 @@ for element in "${array[@]}"; do
     echo "btrfs subvolume create ${RSYNC_TO_DIR}/${part1}"
 done
 
-cd ..
+echo "cd .."
 
 echo "umount -R $RSYNC_TO_DIR"
 echo "mkdir -p $RSYNC_TO_DIR/boot"
