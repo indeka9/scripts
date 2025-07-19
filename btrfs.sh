@@ -40,7 +40,6 @@ done
 cd ..
 
 echo "umount -R $RSYNC_TO_DIR"
-
 echo "mkdir -p $RSYNC_TO_DIR/boot"
 echo "mkdir -p $RSYNC_TO_DIR/boot/efi"
 
@@ -50,8 +49,8 @@ for element in "${array[@]}"; do
     echo "mkdir -p $RSYNC_TO_DIR/${part2}"
 done
 
-echo "mount -o defaults /dev/${DISK}${DISKBOOT} $RSYNC_TO_DIR/boot"
-echo "mount -o defaults /dev/${DISK}${DISKEFI} $RSYNC_TO_DIR/boot/efi"
+echo "mount -o $mount_options /dev/${DISK}${DISKBOOT} $RSYNC_TO_DIR/boot"
+echo "mount -o $mount_options /dev/${DISK}${DISKEFI} $RSYNC_TO_DIR/boot/efi"
 
 for element in "${array[@]}"; do
     IFS=':' read -r part1 part2 <<< "$element"
