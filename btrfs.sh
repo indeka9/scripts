@@ -1,9 +1,9 @@
 # === CONFIGURATION ===
-DISK="sdb"
+DISK="sdc"
 DISKEFI=1
 DISKBOOT=2
 DISKROOT=3
-ROOTNAME=root
+ROOTNAME=main
 
 RSYNC_FROM_DIR="/mnt/copyfrom" 
 RSYNC_TO_DIR="/mnt/copyto"
