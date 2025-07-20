@@ -75,7 +75,7 @@ echo "export PS1=\"(chroot) \$PS1\""
 
 modules='all_video boot btrfs cat chain configfile echo efifwsetup efinet ext2 fat font gettext gfxmenu gfxterm gfxterm_background gzio halt help hfsplus iso9660 jpeg keystatus loadenv loopback linux ls lsefi lsefimmap lsefisystab lssal memdisk minicmd normal ntfs part_apple part_msdos part_gpt password_pbkdf2 png probe reboot regexp search search_fs_uuid search_fs_file search_label sleep smbios squash4 test true video xfs zfs zfscrypt zfsinfo play tpm luks cryptodisk cpuid'
 
-echo "grub-install  --bootloader-id Linux --efi-directory /boot  --modules=\"${modules}\" --sbat /usr/share/grub/sbat.csv"
+echo "grub-install  --bootloader-id Linux --efi-directory /boot/efi  --modules=\"${modules}\" --sbat /usr/share/grub/sbat.csv"
 echo ""
 echo "efibootmgr --create --disk /dev/${DISK} --part ${DISKEFI} --label "Linux shim" --loader 'EFI\Linux\shimx64.efi' --unicode"
 
