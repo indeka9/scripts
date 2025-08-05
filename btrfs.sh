@@ -3,7 +3,7 @@ DISK="sdc"
 DISKEFI=2
 DISKBOOT=3
 DISKROOT=4
-ROOTNAME=root
+ROOTNAME=main
 
 RSYNC_FROM_DIR="/mnt/copyfrom" 
 RSYNC_TO_DIR="/mnt/copyto"
@@ -69,7 +69,7 @@ echo "test -L /dev/shm && rm /dev/shm && mkdir /dev/shm"
 echo "mount --types tmpfs tmpfs /mnt/copyto/dev/shm"
 echo "chmod 1777 /mnt/copyto/dev/shm"
 
-echo "chroot /mnt/copyto /bin/bash"
+echo "arch-chroot /mnt/copyto /bin/bash"
 echo "source /etc/profile"
 echo "export PS1=\"(chroot) \$PS1\""
 
